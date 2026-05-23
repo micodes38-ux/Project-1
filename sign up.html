@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign Up - Spice Village</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="signup-page page-template page-signup">
+
+<div class="wp-site-blocks">
+  <div class="wp-block-group is-layout-flow">
+
+    <!-- ========== HEADER ========== -->
+    <header id="site-header">
+      <div class="slider">
+        <div class="slides">
+          <img src="Home.png" class="slide active" alt="Spice Village dining experience">
+          <img src="Menu.png" class="slide" alt="Spice Village menu items">
+          <img src="About Us.png" class="slide" alt="Spice Village chefs">
+          <img src="Visit Us.png" class="slide" alt="Spice Village contact information">
+        </div>
+
+        <!-- Buttons -->
+        <button class="prev" onclick="prevSlide()">❮</button>
+        <button class="next" onclick="nextSlide()">❯</button>
+      </div>
+
+      <div class="hero-overlay"></div>
+
+      <div class="header-inner" id="signup-theme-header">
+        <div class="header-columns">
+
+          <div class="header-col logo-col">
+            <h1 class="site-title">
+              <a href="index.html" target="_self" rel="home">Spice Village</a>
+            </h1>
+          </div>
+
+          <div class="header-col nav-col">
+            <nav class="site-nav" aria-label="Header menu">
+              <button class="nav-toggle" aria-label="Open menu" aria-haspopup="dialog">
+                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M4 7.5h16v1.5H4z"></path>
+                  <path d="M4 15h16v1.5H4z"></path>
+                </svg>
+              </button>
+
+              <div class="nav-overlay" id="nav-modal">
+                <div class="nav-overlay-inner">
+                  <button class="nav-close" aria-label="Close menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+                      <path d="m13.06 12 6.47-6.47-1.06-1.06L12 10.94 5.53 4.47 4.47 5.53 10.94 12l-6.47 6.47 1.06 1.06L12 13.06l6.47 6.47 1.06-1.06L13.06 12Z"></path>
+                    </svg>
+                  </button>
+                  <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+
+          <div class="header-col actions-col">
+            <div class="header-actions">
+              <!-- Cart Icon -->
+              <button class="action-btn cart-btn" aria-label="Shopping cart" title="Cart (0 items)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                <span class="cart-count">0</span>
+              </button>
+              
+              <!-- Search -->
+              <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search menu..." aria-label="Search menu items" />
+                <button class="search-btn" aria-label="Search">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                  </svg>
+                </button>
+              </div>
+              
+              <!-- Sign In / Sign Up -->
+              <button class="action-btn signin-btn" data-action="signin">Sign In</button>
+              <a href="index.html" class="btn btn-outline">Back Home</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <p class="section-label">Join Our Community</p>
+        <h2 class="hero-heading">Create Your Account</h2>
+        <p class="hero-subtext">Sign up to place orders, save your favorites, and get exclusive offers from Spice Village.</p>
+      </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="wp--skip-link--target">
+
+      <section class="signup-section dark-bg">
+        <div class="signup-inner wide-container">
+
+          <div class="signup-container">
+            <div class="signup-form-wrapper">
+              <h2 class="signup-heading">Create Account</h2>
+              <p class="signup-subtext">Fill in the details below to get started</p>
+
+              <form id="signupForm" class="signup-form" novalidate>
+                
+                <!-- Full Name -->
+                <div class="form-group">
+                  <label for="fullname">Full Name <span class="required">*</span></label>
+                  <input 
+                    type="text" 
+                    id="fullname" 
+                    name="fullname" 
+                    class="form-input" 
+                    placeholder="John Doe"
+                    required
+                    pattern="[A-Za-z\s]+"
+                  >
+                  <span class="error-message" id="fullname-error"></span>
+                </div>
+
+                <!-- Email Address -->
+                <div class="form-group">
+                  <label for="email">Email Address <span class="required">*</span></label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    class="form-input" 
+                    placeholder="you@example.com"
+                    required
+                  >
+                  <span class="error-message" id="email-error"></span>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    class="form-input" 
+                    placeholder="+92 0000000000"
+                  >
+                  <span class="error-message" id="phone-error"></span>
+                </div>
+
+                <!-- Address -->
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <input 
+                    type="text" 
+                    id="address" 
+                    name="address" 
+                    class="form-input" 
+                    placeholder="123 Main Street, City"
+                  >
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                  <label for="password">Password <span class="required">*</span></label>
+                  <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    class="form-input" 
+                    placeholder="At least 8 characters"
+                    required
+                    minlength="8"
+                  >
+                  <span class="error-message" id="password-error"></span>
+                  <small class="password-hint">Must be at least 8 characters long</small>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                  <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                  <input 
+                    type="password" 
+                    id="confirmPassword" 
+                    name="confirmPassword" 
+                    class="form-input" 
+                    placeholder="Confirm your password"
+                    required
+                  >
+                  <span class="error-message" id="confirmPassword-error"></span>
+                </div>
+
+                <!-- Terms Checkbox -->
+                <div class="form-group checkbox-group">
+                  <label for="terms">
+                    <input 
+                      type="checkbox" 
+                      id="terms" 
+                      name="terms" 
+                      required
+                    >
+                    <span>I agree to the <a href="#" target="_blank">Terms & Conditions</a> and <a href="#" target="_blank">Privacy Policy</a></span>
+                  </label>
+                  <span class="error-message" id="terms-error"></span>
+                </div>
+
+                <!-- Newsletter Checkbox -->
+                <div class="form-group checkbox-group">
+                  <label for="newsletter">
+                    <input 
+                      type="checkbox" 
+                      id="newsletter" 
+                      name="newsletter"
+                    >
+                    <span>Send me special offers and updates</span>
+                  </label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary signup-btn">Create Account</button>
+
+                <!-- Sign In Link -->
+                <p class="signin-link">
+                  Already have an account? <a href="#" onclick="openSignIn()">Sign in here</a>
+                </p>
+              </form>
+
+              <!-- Success Message -->
+              <div id="successMessage" class="success-message" style="display: none;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <h3>Account Created Successfully!</h3>
+                  <p>Welcome to Spice Village. You can now sign in to your account.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer id="site-footer">
+      <div class="footer-inner">
+        <div class="footer-columns">
+
+          <div class="footer-col footer-links">
+            <a href="index.html" class="footer-btn">Home</a>
+            <a href="menu.html" class="footer-btn">Menu</a>
+            <a href="blog.html" class="footer-btn">Blog</a>
+            <a href="contact-us.html" class="footer-btn">Contact</a>
+          </div>
+
+          <div class="footer-col footer-info">
+            <h1 class="footer-site-title"><a href="index.html">Spice Village</a></h1>
+            <p class="footer-email">micodes38@gmail.com</p>
+            <p class="footer-hours">Open : 09:00 am – 01:00 pm</p>
+
+            <h2 class="footer-newsletter-heading">Get News & Offers</h2>
+            <p class="footer-newsletter-sub">Subscribe us & Get <strong>25% Off.</strong></p>
+          </div>
+
+        </div>
+
+        <p class="footer-copyright centered">Copyright @ 2026, All Rights Reserved</p>
+      </div>
+    </footer>
+
+  </div><!-- .wp-site-blocks -->
+</div>
+
+<script src="script.js"></script>
+<script>
+  // Form Validation and Submission
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('signupForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Clear previous errors
+      document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+      
+      let isValid = true;
+
+      // Validate Full Name
+      const fullname = document.getElementById('fullname');
+      if (!fullname.value.trim()) {
+        document.getElementById('fullname-error').textContent = 'Full name is required';
+        isValid = false;
+      } else if (!/^[A-Za-z\s]+$/.test(fullname.value)) {
+        document.getElementById('fullname-error').textContent = 'Full name must contain only letters';
+        isValid = false;
+      }
+
+      // Validate Email
+      const email = document.getElementById('email');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email.value.trim()) {
+        document.getElementById('email-error').textContent = 'Email is required';
+        isValid = false;
+      } else if (!emailRegex.test(email.value)) {
+        document.getElementById('email-error').textContent = 'Please enter a valid email address';
+        isValid = false;
+      }
+
+      // Validate Phone
+      const phone = document.getElementById('phone');
+      if (phone.value && !/^[\d\s\-\+\(\)]+$/.test(phone.value)) {
+        document.getElementById('phone-error').textContent = 'Please enter a valid phone number';
+        isValid = false;
+      }
+
+      // Validate Password
+      const password = document.getElementById('password');
+      if (!password.value) {
+        document.getElementById('password-error').textContent = 'Password is required';
+        isValid = false;
+      } else if (password.value.length < 8) {
+        document.getElementById('password-error').textContent = 'Password must be at least 8 characters long';
+        isValid = false;
+      }
+
+      // Validate Confirm Password
+      const confirmPassword = document.getElementById('confirmPassword');
+      if (!confirmPassword.value) {
+        document.getElementById('confirmPassword-error').textContent = 'Please confirm your password';
+        isValid = false;
+      } else if (password.value !== confirmPassword.value) {
+        document.getElementById('confirmPassword-error').textContent = 'Passwords do not match';
+        isValid = false;
+      }
+
+      // Validate Terms
+      const terms = document.getElementById('terms');
+      if (!terms.checked) {
+        document.getElementById('terms-error').textContent = 'You must accept the terms and conditions';
+        isValid = false;
+      }
+
+      if (isValid) {
+        // Show success message
+        form.style.display = 'none';
+        successMessage.style.display = 'flex';
+        
+        // Reset form
+        form.reset();
+        
+        // Redirect to menu after 3 seconds
+        setTimeout(function() {
+          window.location.href = 'menu.html';
+        }, 3000);
+      } else {
+        // Scroll to first error
+        const firstError = document.querySelector('.error-message:not(:empty)');
+        if (firstError) {
+          firstError.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    });
+  });
+
+  function openSignIn() {
+    // This will use the existing modal from script.js
+    if (typeof showAuthModal === 'function') {
+      showAuthModal('signin');
+    } else {
+      window.location.href = 'index.html';
+    }
+  }
+</script>
+</body>
+</html>

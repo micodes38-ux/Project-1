@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout — Spice Village</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="site-header">
+    <div class="header-inner">
+      <div class="header-columns">
+        <div class="header-col logo-col"><h1 class="site-title"><a href="index.html">Spice Village</a></h1></div>
+      </div>
+    </div>
+    <div class="header-banner">
+      <div class="header-banner-inner">
+        <p class="banner-eyebrow">Secure Checkout</p>
+        <h2 class="banner-title">Fast, protected orders with Spice Village</h2>
+        <p class="banner-copy">Complete your purchase with confidence. Enter your details, choose a payment method, and we’ll confirm your order right away.</p>
+        <div class="banner-actions">
+          <a class="btn btn-primary" href="#checkout-form">Place order now</a>
+          <a class="btn btn-outline" href="shop.html">Back to menu</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wide-container">
+    <section class="checkout-section">
+      <h2 class="section-heading">Checkout</h2>
+      <p class="checkout-note">Review your order and complete the secure checkout form. The page will highlight the payment fields you need and show a live order summary as you go.</p>
+
+      <div class="checkout-grid">
+        <div class="checkout-left">
+          <form id="checkout-form" novalidate>
+            <div class="form-row">
+              <label for="cust-name">Full name</label>
+              <input type="text" id="cust-name" required>
+              <div class="error-text" aria-live="polite"></div>
+            </div>
+            <div class="form-row">
+              <label for="cust-email">Email</label>
+              <input type="email" id="cust-email" required>
+              <div class="error-text" aria-live="polite"></div>
+            </div>
+            <div class="form-row">
+              <label for="cust-phone">Phone</label>
+              <input type="tel" id="cust-phone" required>
+              <div class="error-text" aria-live="polite"></div>
+            </div>
+            <div class="form-row">
+              <label for="cust-address">Delivery address</label>
+              <textarea id="cust-address" rows="3" required></textarea>
+              <div class="error-text" aria-live="polite"></div>
+            </div>
+
+            <fieldset class="form-row">
+              <legend>Payment method</legend>
+              <label><input type="radio" name="payment" value="easypaisa" checked> EasyPaisa</label>
+              <label><input type="radio" name="payment" value="cod"> Cash on Delivery</label>
+            </fieldset>
+
+            <div class="form-row" id="easypaisa-row">
+              <label for="easypaisa-number">EasyPaisa number</label>
+              <input type="tel" id="easypaisa-number" placeholder="03XXXXXXXXX">
+              <div class="error-text" aria-live="polite"></div>
+            </div>
+
+            <div class="form-row">
+              <button type="submit" class="btn btn-primary">Place Order</button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="checkout-right">
+          <div class="order-summary-card">
+            <div class="summary-top">
+              <h3>Order Summary</h3>
+              <div class="order-summary-pill">Items in cart <span id="order-count">0</span></div>
+            </div>
+            <div id="order-items"></div>
+            <div class="order-total" id="order-total"></div>
+          </div>
+        </aside>
+      </div>
+
+      <div id="checkout-message" class="centered" role="status" aria-live="polite" style="margin-top:20px"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner wide-container">
+      <div class="footer-columns">
+        <div class="footer-brand">
+          <h4>Spice Village</h4>
+          <p>Fresh flavors, fast delivery, and checkout made easy.</p>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="menu.html">Menu</a>
+          <a href="shop.html">Shop</a>
+        </div>
+        <div class="footer-cta">
+          <a class="btn btn-primary" href="shop.html">Continue Shopping</a>
+        </div>
+      </div>
+      <p class="footer-note">© 2026 Spice Village. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var CART_KEY = 'spicevillage_cart_v1';
+
+      function getCart(){ try { return JSON.parse(localStorage.getItem(CART_KEY) || '[]'); } catch(e){ return []; } }
+      function formatPrice(p){ return p + ' PKR'; }
+      function isValidEmail(email){ return /^\S+@\S+\.\S+$/.test(email); }
+      function isValidPhone(phone){ return /^[0-9]{10,15}$/.test(phone.replace(/\D/g, '')); }
+
+      var itemsEl = document.getElementById('order-items');
+      var totalEl = document.getElementById('order-total');
+      var orderCountEl = document.getElementById('order-count');
+      var form = document.getElementById('checkout-form');
+      var msg = document.getElementById('checkout-message');
+      var easypaisaRow = document.getElementById('easypaisa-row');
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var paymentLabels = Array.from(document.querySelectorAll('fieldset.form-row label'));
+
+      function updateCartState(){
+        var cart = getCart();
+        var itemCount = (cart || []).reduce(function(sum, item){ return sum + (item.quantity || 1); }, 0);
+        orderCountEl.textContent = itemCount || '0';
+        submitBtn.disabled = !cart || cart.length === 0;
+        if (!cart || cart.length === 0) {
+          itemsEl.innerHTML = '<p>Your cart is empty. <a href="shop.html">Shop now</a></p>';
+          totalEl.textContent = '';
+          submitBtn.classList.add('btn-outline-primary');
+          submitBtn.classList.remove('btn-primary');
+          submitBtn.textContent = 'Cart is empty';
+          return;
+        }
+
+        submitBtn.classList.remove('btn-outline-primary');
+        submitBtn.classList.add('btn-primary');
+        submitBtn.textContent = 'Place Order';
+
+        var total = 0;
+        itemsEl.innerHTML = '';
+        cart.forEach(function(it){
+          var row = document.createElement('div');
+          row.className = 'order-item';
+          var lineTotal = (it.price || 0) * (it.quantity || 0);
+          total += lineTotal;
+          row.innerHTML = '<strong>'+ (it.name || '') +'</strong> <span class="muted">x'+ (it.quantity||1) +'</span><div>'+ (it.caption||'') +'</div><div>'+ formatPrice(lineTotal) +'</div>';
+          itemsEl.appendChild(row);
+        });
+        totalEl.textContent = 'Total: ' + formatPrice(total);
+      }
+
+      function updatePaymentFields(){
+        var selectedPayment = document.querySelector('input[name="payment"]:checked');
+        if (!selectedPayment) return;
+        var val = selectedPayment.value;
+        var showEasy = val === 'easypaisa';
+        easypaisaRow.classList.toggle('hidden', !showEasy);
+
+        paymentLabels.forEach(function(label){
+          var input = label.querySelector('input');
+          label.classList.toggle('active', input && input.checked);
+        });
+      }
+
+      function clearErrors(){
+        form.querySelectorAll('.error-text').forEach(function(el){ el.textContent = ''; });
+        form.querySelectorAll('input,textarea').forEach(function(el){ el.removeAttribute('aria-invalid'); el.classList.remove('invalid'); });
+      }
+
+      function showMessage(html){
+        msg.innerHTML = html;
+        msg.classList.add('visible');
+      }
+
+      function hideMessage(){
+        msg.classList.remove('visible');
+      }
+
+      document.querySelectorAll('input[name="payment"]').forEach(function(r){ r.addEventListener('change', updatePaymentFields); });
+      form.querySelectorAll('input,textarea').forEach(function(field){
+        field.addEventListener('input', function(){
+          var errorEl = field.parentElement.querySelector('.error-text');
+          if (errorEl) errorEl.textContent = '';
+          field.removeAttribute('aria-invalid');
+          field.classList.remove('invalid');
+          hideMessage();
+        });
+      });
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        clearErrors();
+        hideMessage();
+
+        var cart = getCart();
+        if (!cart || cart.length === 0) {
+          showMessage('<strong>Your cart is empty.</strong> Please add items before checking out.');
+          return;
+        }
+
+        var nameInput = document.getElementById('cust-name');
+        var emailInput = document.getElementById('cust-email');
+        var phoneInput = document.getElementById('cust-phone');
+        var addressInput = document.getElementById('cust-address');
+        var easypaisaInput = document.getElementById('easypaisa-number');
+        var payment = document.querySelector('input[name="payment"]:checked').value;
+
+        var name = nameInput.value.trim();
+        var email = emailInput.value.trim();
+        var phone = phoneInput.value.trim();
+        var address = addressInput.value.trim();
+        var easypaisa = easypaisaInput.value.trim();
+        var hasError = false;
+
+        if (!name) { nameInput.parentElement.querySelector('.error-text').textContent = 'Please enter your name.'; nameInput.setAttribute('aria-invalid', 'true'); hasError = true; }
+        if (!email || !isValidEmail(email)) { emailInput.parentElement.querySelector('.error-text').textContent = 'Please enter a valid email.'; emailInput.setAttribute('aria-invalid', 'true'); hasError = true; }
+        if (!phone || !isValidPhone(phone)) { phoneInput.parentElement.querySelector('.error-text').textContent = 'Please enter a valid phone number.'; phoneInput.setAttribute('aria-invalid', 'true'); hasError = true; }
+        if (!address) { addressInput.parentElement.querySelector('.error-text').textContent = 'Please enter your delivery address.'; addressInput.setAttribute('aria-invalid', 'true'); hasError = true; }
+        if (payment === 'easypaisa' && !easypaisa) { easypaisaInput.parentElement.querySelector('.error-text').textContent = 'Please enter your EasyPaisa number.'; easypaisaInput.setAttribute('aria-invalid', 'true'); hasError = true; }
+
+        if (hasError) {
+          showMessage('<strong>Check the form above.</strong> Some fields need your attention.');
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Processing...';
+
+        var order = {
+          id: 'order_' + Date.now(),
+          createdAt: new Date().toISOString(),
+          customer: { name: name, email: email, phone: phone, address: address },
+          payment: { method: payment, easypaisa: easypaisa || null },
+          items: cart
+        };
+
+        try {
+          var history = JSON.parse(localStorage.getItem('spicevillage_orders') || '[]');
+          history.push(order);
+          localStorage.setItem('spicevillage_orders', JSON.stringify(history));
+        } catch (e) { }
+
+        localStorage.removeItem(CART_KEY);
+        if (typeof window.updateCartCount === 'function') try { window.updateCartCount(); } catch(e){}
+
+        showMessage('<strong>Thank you — your order has been placed.</strong><p>Order ID: '+ order.id +'</p><p>A confirmation has been saved locally. We will contact you shortly.</p><p><a href="index.html">Return home</a> or <a href="shop.html">continue shopping</a>.</p>');
+        form.reset();
+        updatePaymentFields();
+        updateCartState();
+      });
+
+      updatePaymentFields();
+      updateCartState();
+    })();
+  </script>
+</body>
+</html>

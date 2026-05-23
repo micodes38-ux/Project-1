@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spice Village</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="home blog wp-embed-responsive wp-theme-wens-haelo wp-child-theme-wens-vivid">
+
+<div class="wp-site-blocks">
+  <div class="wp-block-group is-layout-flow">
+
+    <!-- ========== HEADER ========== -->
+    <header id="site-header">
+      <div class="slider">
+        <div class="slides">
+          <img src="Home.png" class="slide active">
+          <img src="Menu.png" class="slide">
+          <img src="About Us.png" class="slide">
+          <img src="Visit Us.png" class="slide">
+        </div>
+
+        <!-- Buttons -->
+        <button class="prev" onclick="prevSlide()"></button>
+        <button class="next" onclick="nextSlide()"></button>
+      </div>
+
+      <div class="hero-overlay"></div>
+
+      <div class="header-inner" id="home-theme-header">
+        <div class="header-columns">
+
+          <!-- Logo / Site Title -->
+          <div class="header-col logo-col">
+            <h1 class="site-title">
+              <a href="/" target="_self" rel="home" aria-current="page">Spice Village</a>
+            </h1>
+          </div>
+
+          <!-- Navigation -->
+          <div class="header-col nav-col">
+            <nav class="site-nav" aria-label="Header menu">
+              <button class="nav-toggle" aria-label="Open menu" aria-haspopup="dialog">
+                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M4 7.5h16v1.5H4z"></path>
+                  <path d="M4 15h16v1.5H4z"></path>
+                </svg>
+              </button>
+
+              <div class="nav-overlay" id="nav-modal">
+                <div class="nav-overlay-inner">
+                  <button class="nav-close" aria-label="Close menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+                      <path d="m13.06 12 6.47-6.47-1.06-1.06L12 10.94 5.53 4.47 4.47 5.53 10.94 12l-6.47 6.47 1.06 1.06L12 13.06l6.47 6.47 1.06-1.06L13.06 12Z"></path>
+                    </svg>
+                  </button>
+                  <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+
+          <!-- CTA Button -->
+          <div class="header-col actions-col">
+            <div class="header-actions">
+              <!-- Cart Icon -->
+              <button class="action-btn cart-btn" aria-label="Shopping cart" title="Cart (0 items)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                <span class="cart-count">0</span>
+              </button>
+              
+              <!-- Search -->
+              <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search menu..." aria-label="Search menu items" />
+                <button class="search-btn" aria-label="Search">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                  </svg>
+                </button>
+              </div>
+              
+              <!-- Sign In / Sign Up -->
+              <button class="action-btn signin-btn" data-action="signin">Sign In</button>
+              <button class="action-btn signup-btn" data-action="signup">Sign Up</button>
+              
+              <!-- Order Now Button -->
+              <a class="btn btn-outline" href="shop.html">Order Now</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <p class="section-label">Welcome to Spice Village</p>
+        <h2 class="hero-heading">Where Every Bite Tells a Story</h2>
+        <p class="hero-subtext">Come with family & feel the joy of mouthwatering food.</p>
+        <div class="btn-group centered" style="margin-top:30px">
+          <a class="btn btn-outline-primary" href="menu.html">View Our Menu</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="wp--skip-link--target">
+
+      <!-- About Section -->
+      <section class="about-section dark-bg">
+        <div class="about-inner wide-container">
+
+          <!-- Text Column -->
+          <div class="about-text">
+            <p class="section-label">About Spice Village</p>
+            <h2 class="section-heading">Where Tradition Meets Taste</h2>
+            <p>At Spice Village, we bring the authentic flavors of Pakistan right into your plate. Our chefs craft each dish with fresh ingredients and traditional spices, ensuring every bite is unforgettable. From sizzling karahis to aromatic biryanis, we celebrate the rich culinary heritage of our country. Whether you're dining in or ordering online, we promise a warm, flavorful experience every time. Join us and taste the passion and tradition in every dish.</p>
+            <p><strong>Book Through Call</strong></p>
+            <p class="phone-number">+97 3192178843</p>
+            <a class="btn btn-outline" href="blog.html">Read More</a>
+          </div>
+
+          <!-- Image Column -->
+          <div class="about-images">
+            <div class="about-main-img">
+              <img
+                src="Delicious-Chicken-Seekh-Kebab-a-spicy-Indian.jpg"
+                alt="Chicken Seekh Kabab"
+                loading="lazy"
+              >
+              <h6>Chicken Seekh Kabab</h6>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Tandoori Feature Section -->
+      <section class="tandoori-section">
+        <div class="tandoori-inner wide-container">
+
+          <!-- Image -->
+          <div class="tandoori-img-col">
+            <div class="tandoori-img-wrap">
+              <img
+                src="chicken-tandori.jpg"
+                alt="Chicken Tandoori"
+                loading="lazy"
+              >
+              <p class="img-caption">Chicken Tandoori</p>
+            </div>
+          </div>
+
+          <!-- Text -->
+          <div class="tandoori-text-col">
+            <p class="section-label">Flavors for Royalty</p>
+            <h2 class="section-heading">Best Chicken Tandoori In Town</h2>
+            <p>Savor the juiciest, perfectly spiced chicken tandoori at Spice Village! Marinated in a blend of traditional spices and yogurt, then cooked to perfection in our tandoor, each bite is smoky, tender and bursting with flavor.</p>
+            <div class="price-row">
+              <span class="price-old"><s>1500PKR</s></span>
+              <span class="price-new">1100PKR</span>
+            </div>
+            <a class="btn btn-outline" href="shop.html">Order Now</a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Menu Section -->
+      <section class="menu-section dark-bg">
+        <div class="menu-inner wide-container">
+          <p class="section-label centered">Flavors for royalty</p>
+          <h2 class="section-heading centered">Spice Village's Delicious Menu</h2>
+
+          <div class="menu-grid">
+
+            <!-- Left Column -->
+            <div class="menu-col">
+              <div class="menu-item">
+                <img src="biriyani.jpg" alt="Chicken Spicy Biryani" loading="lazy">
+                <div class="menu-item-info">
+                  <h3>Chicken Spicy Biryani</h3>
+                  <span class="menu-price">850PKR</span>
+                </div>
+              </div>
+              <div class="menu-item">
+                <img src="Delicious-Chicken-Seekh-Kebab-a-spicy-Indian.jpg" alt="Chicken Seekh Kabab" loading="lazy">
+                <div class="menu-item-info">
+                  <h3>Chicken Seekh Kabab</h3>
+                  <span class="menu-price">450PKR</span>
+                </div>
+              </div>
+              <div class="menu-item">
+                <img src="Spicy-Chiken-tikka.jpg" alt="Chicken Tikka" loading="lazy">
+                <div class="menu-item-info">
+                  <h3>Chicken Tikka</h3>
+                  <span class="menu-price">900PKR</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="menu-col">
+              <div class="menu-item">
+                <img src="Black-Pepper-Beef.jpg" alt="Black Pepper Beef" loading="lazy">
+                <div class="menu-item-info">
+                  <h3>Black Pepper Beef</h3>
+                  <span class="menu-price">1080PKR</span>
+                </div>
+              </div>
+              <div class="menu-item">
+                <img src="Quick-and-Easy-Mutton-Karahi-GÇô-30-Minute-Recipe.jpg" alt="Mutton Karahi" loading="lazy">
+                <div class="menu-item-info">
+                  <h3>Mutton Karahi</h3>
+                  <span class="menu-price">1500PKR</span>
+                </div>
+              </div>
+              <div class="menu-item">
+                <img src="Crispy-Chilli-Beef-Slimming-World-Friendly-Recipe-Fatgirlskinny_net-_-Slimming-Recipes-Healthy-Eating-Weight-Loss.jpg" alt="Beef Chilli Dry" loading="lazy">
+                <div class="menu-item-info">
+                  <h3>Beef Chilli Dry</h3>
+                  <span class="menu-price">1180PKR</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <p class="menu-hours centered">During winter daily from 7:00 pm to 9:00 pm</p>
+          <div class="btn-group centered" style="margin-top:30px">
+            <a class="btn btn-outline-primary" href="menu.html">View Our Menu</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Special Dishes Banner -->
+      <section class="special-section dark-bg">
+        <div class="special-text">
+          <p class="section-label centered">Best Menu</p>
+          <h3 class="section-subheading centered">Special Dishes</h3>
+          <p class="centered">Weekend Combo Deals</p>
+        </div>
+        <div class="special-img">
+          <img
+            src="Kolachi-Restaurant-BBQ-Grilling-1024x683-1.jpg"
+            alt="Special Dishes"
+            loading="lazy"
+          >
+        </div>
+      </section>
+
+      <!-- Blog Section -->
+      <section class="blog-section dark-bg">
+        <div class="blog-inner wide-container">
+          <p class="section-label centered">Recent Blogs</p>
+          <h2 class="section-heading centered">Check Our Latest Blogs</h2>
+          
+          <!-- Blog Posts Grid -->
+          <div class="blog-grid">
+            
+            <!-- Blog Card 1 -->
+            <div class="blog-card">
+              <img src="Biriyani.jfif" alt="The Art of Perfect Biryani" loading="lazy">
+              <h3>The Art of Perfect Biryani</h3>
+              <p>Discover the secrets behind our signature biryani. From selecting the finest rice to layering aromatic spices, learn how our chefs create this timeless masterpiece that keeps customers coming back.</p>
+              <div class="blog-card-meta">
+                <span>📅 May 20, 2026</span>
+                <span>👨‍🍳 Chef's Blog</span>
+              </div>
+              <a class="btn btn-outline" href="blog.html">Read More</a>
+            </div>
+
+            <!-- Blog Card 2 -->
+            <div class="blog-card">
+              <img src="Condimente.jfif" alt="Spice Blending Traditions" loading="lazy">
+              <h3>The Magic of Traditional Spices</h3>
+              <p>Explore how authentic Pakistani spices transform ordinary ingredients into extraordinary flavors. Our blog reveals the traditional spice blending techniques that have been perfected over generations.</p>
+              <div class="blog-card-meta">
+                <span>📅 May 18, 2026</span>
+                <span>🌶️ Spice Culture</span>
+              </div>
+              <a class="btn btn-outline" href="blog.html">Read More</a>
+            </div>
+
+            <!-- Blog Card 3 -->
+            <div class="blog-card">
+              <img src="Mouth Watering Delicacy With Quarter Grilled Chicken In Dallas.jfif" alt="Tandoori Mastery" loading="lazy">
+              <h3>Tandoori Mastery: Wood-Fire Perfection</h3>
+              <p>Step into our kitchen and learn about the art of tandoori cooking. Our expert chefs share techniques for achieving that perfect golden crust and smoky flavor that makes our tandoori dishes legendary.</p>
+              <div class="blog-card-meta">
+                <span>📅 May 15, 2026</span>
+                <span>🔥 Cooking Tips</span>
+              </div>
+              <a class="btn btn-outline" href="blog.html">Read More</a>
+            </div>
+
+          </div>
+
+          <div class="btn-group centered" style="margin-top:40px">
+            <a class="btn btn-outline-primary" href="blog.html">View All Blogs</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer id="site-footer">
+      <div class="footer-inner">
+        <div class="footer-columns">
+
+          <!-- Footer Links -->
+          <div class="footer-col footer-links">
+            <a href="menu.html">View Menu</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact-us.html">Contact</a>
+          </div>
+
+          <!-- Footer Center Info -->
+          <div class="footer-col footer-info">
+            <h1 class="footer-site-title"><a href="/">Spice Village</a></h1>
+            <p class="footer-email">micodes38@gmail.com</p>
+            <p class="footer-hours">Open : 09:00 am – 01:00 pm</p>
+
+            <h2 class="footer-newsletter-heading">Get News & Offers</h2>
+            <p class="footer-newsletter-sub">Subscribe us & Get <strong>25% Off.</strong></p>
+          </div>
+
+        </div>
+
+        <p class="footer-copyright centered">Copyright @ 2026, All Rights Reserved</p>
+      </div>
+    </footer>
+
+  </div><!-- .wp-site-blocks -->
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

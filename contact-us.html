@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us - Spice Village</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="contact page-template page-contact">
+
+<div class="wp-site-blocks">
+  <div class="wp-block-group is-layout-flow">
+
+    <!-- ========== HEADER ========== -->
+    <header id="site-header">
+      <div class="slider">
+        <div class="slides">
+          <img src="Home.png" class="slide active" alt="Spice Village dining experience">
+          <img src="Menu.png" class="slide" alt="Spice Village menu items">
+          <img src="About Us.png" class="slide" alt="Spice Village chefs">
+          <img src="Visit Us.png" class="slide" alt="Spice Village contact information">
+        </div>
+
+        <!-- Buttons -->
+        <button class="prev" onclick="prevSlide()">❮</button>
+        <button class="next" onclick="nextSlide()">❯</button>
+      </div>
+
+      <div class="hero-overlay"></div>
+
+      <div class="header-inner" id="contact-theme-header">
+        <div class="header-columns">
+
+          <div class="header-col logo-col">
+            <h1 class="site-title">
+              <a href="index.html" target="_self" rel="home">Spice Village</a>
+            </h1>
+          </div>
+
+          <div class="header-col nav-col">
+            <nav class="site-nav" aria-label="Header menu">
+              <button class="nav-toggle" aria-label="Open menu" aria-haspopup="dialog">
+                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M4 7.5h16v1.5H4z"></path>
+                  <path d="M4 15h16v1.5H4z"></path>
+                </svg>
+              </button>
+
+              <div class="nav-overlay" id="nav-modal">
+                <div class="nav-overlay-inner">
+                  <button class="nav-close" aria-label="Close menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+                      <path d="m13.06 12 6.47-6.47-1.06-1.06L12 10.94 5.53 4.47 4.47 5.53 10.94 12l-6.47 6.47 1.06 1.06L12 13.06l6.47 6.47 1.06-1.06L13.06 12Z"></path>
+                    </svg>
+                  </button>
+                  <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+
+          <div class="header-col actions-col">
+            <div class="header-actions">
+              <!-- Cart Icon -->
+              <button class="action-btn cart-btn" aria-label="Shopping cart" title="Cart (0 items)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                <span class="cart-count">0</span>
+              </button>
+              
+              <!-- Search -->
+              <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search menu..." aria-label="Search menu items" />
+                <button class="search-btn" aria-label="Search">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                  </svg>
+                </button>
+              </div>
+              
+              <!-- Sign In / Sign Up -->
+              <button class="action-btn signin-btn" data-action="signin">Sign In</button>
+              <button class="action-btn signup-btn" data-action="signup">Sign Up</button>
+              
+              <!-- Order Now Button -->
+              <a class="btn btn-outline" href="shop.html">Order Now</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <p class="section-label">Get in Touch</p>
+        <h2 class="hero-heading">Contact Spice Village</h2>
+        <p class="hero-subtext">Questions, orders, or catering requests? Send us a message and we will reply shortly.</p>
+      </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="wp--skip-link--target">
+
+      <section class="about-section dark-bg">
+        <div class="about-inner wide-container">
+
+          <div class="about-text">
+            <p class="section-label">Reach Out</p>
+            <h2 class="section-heading">We Are Here to Help</h2>
+            <p>Whether you want to place a large order, ask about our menu, or book a table, our team is ready to assist. Use the contact form to share your message and we’ll get back to you soon.</p>
+            <p><strong>Phone</strong></p>
+            <p class="phone-number">+97 3192178843</p>
+            <p><strong>Email</strong></p>
+            <p class="phone-number">micodes38@gmail.com</p>
+          </div>
+
+          <div class="about-images">
+            <div class="about-main-img">
+              <img src="Spicy-Chiken-tikka.jpg" alt="Contact Spice Village" loading="lazy">
+              <p class="img-caption">Message Our Team</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="menu-section">
+        <div class="menu-inner wide-container">
+          <div class="contact-form-block">
+            <form class="wpcf7-form" action="mailto:micodes38@gmail.com" method="post" enctype="text/plain" novalidate>
+              <div class="contact-form-col-2">
+                <p>
+                  <label>Your Name<br>
+                    <input type="text" name="your-name" class="wpcf7-text" required placeholder="Your Name">
+                  </label>
+                </p>
+                <p>
+                  <label>Your Email<br>
+                    <input type="email" name="your-email" class="wpcf7-text" required placeholder="you@example.com">
+                  </label>
+                </p>
+              </div>
+              <div class="contact-form-col-2">
+                <p>
+                  <label>Phone Number<br>
+                    <input type="tel" name="your-phone" class="wpcf7-text" placeholder="+97 3192178843">
+                  </label>
+                </p>
+                <p>
+                  <label>Subject<br>
+                    <input type="text" name="your-subject" class="wpcf7-text" required placeholder="Message Subject">
+                  </label>
+                </p>
+              </div>
+              <p>
+                <label>Your Message<br>
+                  <textarea name="your-message" class="wpcf7-textarea" rows="8" required placeholder="Write your message here..."></textarea>
+                </label>
+              </p>
+              <p>
+                <input type="submit" value="Send Message" class="wp-element-button wpcf7-submit">
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer id="site-footer">
+      <div class="footer-inner">
+        <div class="footer-columns">
+
+          <div class="footer-col footer-links">
+            <a href="index.html">Home</a>
+            <a href="menu.html">View Menu</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact-us.html">Contact</a>
+          </div>
+
+          <div class="footer-col footer-info">
+            <h1 class="footer-site-title"><a href="index.html">Spice Village</a></h1>
+            <p class="footer-email">micodes38@gmail.com</p>
+            <p class="footer-hours">Open : 09:00 am – 01:00 pm</p>
+
+            <h2 class="footer-newsletter-heading">Get News & Offers</h2>
+            <p class="footer-newsletter-sub">Subscribe us & Get <strong>25% Off.</strong></p>
+          </div>
+
+        </div>
+
+        <p class="footer-copyright centered">Copyright @ 2026, All Rights Reserved</p>
+      </div>
+    </footer>
+
+  </div><!-- .wp-site-blocks -->
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spice Village Blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="blog page-template page-blog">
+
+<div class="wp-site-blocks">
+  <div class="wp-block-group is-layout-flow">
+
+    <!-- ========== HEADER ========== -->
+    <header id="site-header">
+      <div class="slider">
+        <div class="slides">
+          <img src="Home.png" class="slide active" alt="Spice Village dining experience">
+          <img src="Menu.png" class="slide" alt="Spice Village menu items">
+          <img src="About Us.png" class="slide" alt="Spice Village chefs">
+          <img src="Visit Us.png" class="slide" alt="Spice Village contact information">
+        </div>
+
+        <!-- Buttons -->
+        <button class="prev" onclick="prevSlide()">❮</button>
+        <button class="next" onclick="nextSlide()">❯</button>
+      </div>
+
+      <div class="hero-overlay"></div>
+
+      <div class="header-inner" id="blog-theme-header">
+        <div class="header-columns">
+
+          <div class="header-col logo-col">
+            <h1 class="site-title">
+              <a href="index.html" target="_self" rel="home">Spice Village</a>
+            </h1>
+          </div>
+
+          <div class="header-col nav-col">
+            <nav class="site-nav" aria-label="Header menu">
+              <button class="nav-toggle" aria-label="Open menu" aria-haspopup="dialog">
+                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M4 7.5h16v1.5H4z"></path>
+                  <path d="M4 15h16v1.5H4z"></path>
+                </svg>
+              </button>
+
+              <div class="nav-overlay" id="nav-modal">
+                <div class="nav-overlay-inner">
+                  <button class="nav-close" aria-label="Close menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+                      <path d="m13.06 12 6.47-6.47-1.06-1.06L12 10.94 5.53 4.47 4.47 5.53 10.94 12l-6.47 6.47 1.06 1.06L12 13.06l6.47 6.47 1.06-1.06L13.06 12Z"></path>
+                    </svg>
+                  </button>
+                  <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+
+          <div class="header-col actions-col">
+            <div class="header-actions">
+              <!-- Cart Icon -->
+              <button class="action-btn cart-btn" aria-label="Shopping cart" title="Cart (0 items)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                <span class="cart-count">0</span>
+              </button>
+              
+              <!-- Search -->
+              <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search menu..." aria-label="Search menu items" />
+                <button class="search-btn" aria-label="Search">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                  </svg>
+                </button>
+              </div>
+              
+              <!-- Sign In / Sign Up -->
+              <button class="action-btn signin-btn" data-action="signin">Sign In</button>
+              <button class="action-btn signup-btn" data-action="signup">Sign Up</button>
+              
+              <!-- Order Now Button -->
+              <a class="btn btn-outline" href="shop.html">Order Now</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <p class="section-label">Spice Village Blog</p>
+        <h2 class="hero-heading">Stories, Recipes, and Kitchen Secrets</h2>
+        <p class="hero-subtext">Discover the flavors behind our dishes, cooking tips, and special celebrations from the heart of our kitchen.</p>
+        <div class="btn-group centered" style="margin-top:30px">
+          <a class="btn btn-outline-primary" href="menu.html">Explore Menu</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="wp--skip-link--target">
+
+      <section class="blog-intro">
+        <div class="blog-intro-inner wide-container">
+          <p class="section-label">From Our Kitchen</p>
+          <h2 class="section-heading">Latest Stories and Food Inspiration</h2>
+          <p>Stay updated with authentic recipes, chef notes, and insider tips that bring the taste of Spice Village to your home.</p>
+        </div>
+      </section>
+
+      <section class="blog-section">
+        <div class="blog-inner wide-container">
+          <article class="blog-featured-card">
+            <img src="Hot Chicken Biryani in Traditional Copper Serving Bowl.jfif" alt="Signature biryani recipe">
+            <div class="blog-featured-content">
+              <p class="section-label">Featured Story</p>
+              <h3>The Art of Slow Cooking Our Signature Biryani</h3>
+              <div class="blog-featured-meta">
+                <span>April 10, 2026</span>
+                
+              </div>
+              <p>Learn the tradition behind our biryani, from spice selection to perfect layering and steaming, so you can recreate the aroma and richness at home.There are dishes that satisfy hunger, and then there are dishes that create memories. Our signature biryani belongs to the second kind. Prepared with patience, layered with care, and finished on a gentle dum, it is a dish that celebrates time, aroma, and tradition.
+
+Slow cooking is what gives biryani its soul. The rice stays long and fragrant, the spices bloom slowly, and every layer absorbs the flavor of the meat, herbs, and masala without losing its own identity. This is not fast food; it is food made with rhythm, balance, and respect for the process.
+
+<br><strong>The craft behind the flavor</strong><br>
+A great biryani begins long before the pot is sealed. The onions are cooked until golden, the spices are awakened in hot oil, and the marinade is given enough time to deepen in taste. Each step matters because biryani is built in layers, and every layer carries part of the final experience.
+
+The rice is parboiled just enough to hold its shape, then folded gently over the cooked masala. Saffron, herbs, and steam bring everything together under low heat, allowing the flavors to merge naturally. That slow finish is what transforms simple ingredients into something rich, aromatic, and unforgettable.
+
+<br><strong>Why dum cooking matters</strong><br>
+Dum cooking is the heart of authentic biryani. By sealing the pot and cooking on low flame, the steam circulates inside and locks in moisture, fragrance, and depth. The result is tender meat, fluffy rice, and a perfume of spices that rises the moment the lid is lifted.
+
+This method also preserves balance. Nothing overpowers the other elements, and that harmony is what makes a signature biryani memorable. It is comfort food, but with craftsmanship behind every spoonful.
+
+<br><strong>A dish worth waiting for</strong><br>
+In a world that often rushes meals, biryani reminds us to slow down. It asks for attention, timing, and patience, and in return it offers depth and satisfaction. That is why a well-made biryani feels special: it is not just cooked, it is carefully composed.
+
+Our signature biryani is made to be shared, celebrated, and remembered. From the first fragrant bite to the last grain of rice, it reflects the art of slow cooking at its best.</p>
+              
+            </div>
+          </article>
+
+          <div class="blog-grid">
+            <article class="blog-card">
+              <img src="chicken-tandori.jpg" alt="Tandoori cooking tips">
+              <div class="blog-card-meta">
+                <span>April 22, 2026</span>
+                <span>Cooking Tips</span>
+              </div>
+              <h3>5 Tips for Perfect Tandoori at Home</h3>
+              <p>Find the easiest ways to get smoky, tender tandoori chicken using simple ingredients and a home oven or grill. Making tandoori at home can feel intimidating at first, but the right technique makes all the difference. With a good marinade, proper heat, and a little patience, you can get that smoky, restaurant style flavor in your own kitchen.
+
+<br><strong>1. Marinate for longer</strong><br>
+The secret to great tandoori starts with time. A short marinade gives surface flavor, but an overnight rest allows the spices, yogurt, lemon, and aromatics to fully absorb into the chicken. The result is deeper flavor and juicier meat.
+
+For best results, marinate for at least 6 hours, and ideally overnight. Keep it covered in the refrigerator so the chicken stays fresh while the flavors develop.
+
+<br><strong>2. Make deep cuts in the chicken</strong><br>
+If you want the marinade to penetrate properly, score the chicken with a few deep slashes. This helps the spices reach the inner layers instead of staying only on the surface. It also helps the meat cook more evenly.
+
+This step is especially useful for thighs, drumsticks, or leg quarters. The more evenly the marinade spreads, the more flavorful each bite will be.
+
+<br><strong>3. Use thick yogurt and balanced spices</strong><br>
+A good tandoori marinade should be rich but not watery. Thick yogurt helps coat the chicken well and keeps the spices from sliding off during cooking. Add ginger, garlic, chili, cumin,coriander, garam masala, and a little lemon juice for the classic flavor profile.
+
+Balance is important. Too much spice can overwhelm the dish, while too little leaves it flat. A well-seasoned marinade should taste bold, tangy, and slightly smoky even before cooking.
+
+<br><strong>4. Cook on high heat</strong><br>
+Tandoori gets its signature texture from intense heat. Whether you are using an oven, grill, or air fryer, make sure the heat is strong enough to char the outside slightly while keeping the inside tender and juicy. This gives the chicken its familiar red-gold color and roasted aroma.
+
+Preheat your oven well before cooking, and place the chicken on a rack if possible. That allows hot air to circulate around it and helps create a more authentic finish.
+
+<br><strong>5. Finish with smoke or butter</strong><br>
+For that final restaurant touch, a light smoky finish can make a big difference. If you have charcoal, you can use a simple dhungar method to add smoke just before serving. If not, brushing the chicken with melted butter or ghee gives it a glossy, rich finish and enhances the flavor.
+
+Serve the tandoori hot with mint chutney, sliced onions, lemon wedges, or naan. That finishing touch brings the whole dish together and makes it feel complete.
+
+</p>
+            </article>s
+            <article class="blog-card">
+              <img src="Condimente.jfif" alt="Fresh spice ingredients">
+              <div class="blog-card-meta">
+                <span>March 30, 2026</span>
+                
+              </div>
+              <h3>Why Fresh Spices Make Every Meal Better</h3>
+              <p>See how freshly ground spices transform flavor and how to build your own aromatic spice blends for everyday cooking.
+
+<br><strong>Why Fresh Spices Make Every Meal Better</strong><br>
+
+Fresh spices can completely change the way a meal tastes. They bring stronger aroma, deeper flavor, and a richer finish that makes even simple dishes feel special. When spices are fresh, they do more than season food—they bring it to life. 
+
+<br><strong> Better flavor, better aroma</strong><br>
+
+The biggest difference fresh spices make is in taste and smell. Spices naturally lose potency over time, which means old spices often taste flat or dusty instead of bold and bright. Fresh spices, on the other hand, release a more vibrant aroma and create layers of flavor that stay present from the first bite to the last.
+
+This is why a freshly opened jar of cumin, cinnamon, or coriander can make a dish instantly more inviting. Even a small amount can have a noticeable effect when the spices are still full of life.
+
+<br><strong>More depth in every dish</strong><br>
+
+Fresh spices do more than add a single note. They build complexity. A good blend of spices can create warmth, heat, sweetness, earthiness, or smokiness, all in one dish. When those spices are fresh, each flavor comes through more clearly and the final meal tastes more balanced. 
+
+This matters in everyday cooking too. Whether you are making curry, roasted vegetables, soup, or grilled meat, fresh spices help the ingredients taste fuller and more complete. 
+
+<br><strong>Small changes, big results</strong><br>
+
+You do not need to use a lot of spice to notice the difference. Freshly ground or freshly bought spices often give better results with less effort because their flavor is concentrated. That means your food can taste richer without becoming overpowering.
+
+A simple example is toast­ing whole cumin seeds before grinding them. The flavor becomes warmer and more pronounced, giving the dish a stronger foundation. These little steps are easy, but they make home cooking feel more refined.
+
+<br><strong> Fresh spices and health</strong><br>
+
+Fresh spices are also valued for their nutritional potential. Some spices contain antioxidants and other beneficial compounds, and fresh herbs and spices can offer more nutritional potential than dried alternatives in many cases. While flavor is the main reason most people use them, the health benefits are a welcome bonus. 
+
+That does not mean dried spices are useless. It simply means that fresher spices often give you more flavor and, in many cases, more natural goodness too. 
+
+<br><strong>How to keep spices fresh</strong><br>
+
+To get the best results, store spices in a cool, dark place away from heat and moisture. Whole spices generally last longer than ground spices, so grinding them as needed can help preserve flavor. If a spice has lost its smell, it has probably also lost much of its taste.
+
+A good habit is to check your spices before cooking. If they still smell strong, they will usually perform well in the dish. If they smell weak, it may be time to replace them. 
+
+Fresh spices are one of the easiest ways to improve everyday cooking. They make food taste brighter, smell better, and feel more satisfying from the first spoonful to the last. </p>
+            </article>
+
+            <article class="blog-card">
+              <img src="701857923218232286.jfif" alt="Family dinner planning">
+              <div class="blog-card-meta">
+                <span>May 2, 2026</span>
+                <span>Family Meals</span>
+              </div>
+              <h3>Family Feast: Planning a Pakistani Dinner Party</h3>
+              <p>Tips for creating a memorable dinner menu, sourcing ingredients, and presenting traditional dishes with confidence.</p>
+              
+            </article>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer id="site-footer">
+      <div class="footer-inner">
+        <div class="footer-columns">
+
+          <div class="footer-col footer-links">
+            <a href="index.html">Home</a>
+             <a href="menu.html">View Menu</a>
+             <a href="blog.html">Blog</a>
+             <a href="contact-us.html">Contact</a>
+          </div>
+
+          <div class="footer-col footer-info">
+            <h1 class="footer-site-title"><a href="index.html">Spice Village</a></h1>
+            <p class="footer-email">micodes38@gmail.com</p>
+            <p class="footer-hours">Open : 09:00 am – 01:00 pm</p>
+
+            <h2 class="footer-newsletter-heading">Get News & Offers</h2>
+            <p class="footer-newsletter-sub">Subscribe us & Get <strong>25% Off.</strong></p>
+          </div>
+
+        </div>
+
+        <p class="footer-copyright centered">Copyright @ 2026, All Rights Reserved</p>
+      </div>
+    </footer>
+
+  </div><!-- .wp-site-blocks -->
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign In - Spice Village</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="signin-page page-template page-signin">
+
+<div class="wp-site-blocks">
+  <div class="wp-block-group is-layout-flow">
+
+    <!-- HEADER (reuses site header structure) -->
+    <header id="site-header">
+      <div class="slider">
+        <div class="slides">
+          <img src="Home.png" class="slide active" alt="Spice Village dining experience">
+        </div>
+        <button class="prev" onclick="prevSlide()">❮</button>
+        <button class="next" onclick="nextSlide()">❯</button>
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="header-inner" id="signin-theme-header">
+        <div class="header-columns">
+
+          <div class="header-col logo-col">
+            <h1 class="site-title"><a href="index.html">Spice Village</a></h1>
+          </div>
+
+          <div class="header-col nav-col">
+            <nav class="site-nav" aria-label="Header menu">
+              <button class="nav-toggle" aria-label="Open menu" aria-haspopup="dialog">
+                <svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 7.5h16v1.5H4z"></path><path d="M4 15h16v1.5H4z"></path></svg>
+              </button>
+              <div class="nav-overlay" id="nav-modal">
+                <div class="nav-overlay-inner">
+                  <button class="nav-close" aria-label="Close menu">✕</button>
+                  <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+
+          <div class="header-col actions-col">
+            <div class="header-actions">
+                <a href="shop.html" class="btn btn-outline">Order Now</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <p class="section-label">Welcome Back</p>
+        <h2 class="hero-heading">Sign In to Your Account</h2>
+        <p class="hero-subtext">Access your orders, saved items, and exclusive offers.</p>
+      </div>
+    </header>
+
+    <main id="wp--skip-link--target">
+      <section class="signup-section dark-bg">
+        <div class="signup-inner wide-container">
+
+          <div class="signup-container">
+            <div class="signup-form-wrapper">
+              <h2 class="signup-heading">Sign In</h2>
+              <p class="signup-subtext">Enter your credentials to continue</p>
+
+              <form id="signinForm" class="signup-form" novalidate>
+
+                <div class="form-group">
+                  <label for="signinEmail">Email Address <span class="required">*</span></label>
+                  <input type="email" id="signinEmail" name="signinEmail" class="form-input" placeholder="you@example.com" required>
+                  <span class="error-message" id="signinEmail-error"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="signinPassword">Password <span class="required">*</span></label>
+                  <input type="password" id="signinPassword" name="signinPassword" class="form-input" placeholder="Your password" required minlength="8">
+                  <span class="error-message" id="signinPassword-error"></span>
+                </div>
+
+                <div class="form-group checkbox-group">
+                  <label for="remember">
+                    <input type="checkbox" id="remember" name="remember"> <span>Remember me</span>
+                  </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary signin-submit">Sign In</button>
+
+                <p class="signin-link">Don't have an account? <a href="sign up.html">Create one</a></p>
+              </form>
+
+              <div id="signinSuccess" class="success-message" style="display:none;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div>
+                  <h3>Signed In Successfully</h3>
+                  <p>Redirecting to your account...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <footer id="site-footer">
+      <div class="footer-inner">
+        <p class="footer-copyright centered">Copyright @ 2026, All Rights Reserved</p>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('signinForm');
+  var success = document.getElementById('signinSuccess');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+    var isValid = true;
+
+    var email = document.getElementById('signinEmail');
+    var password = document.getElementById('signinPassword');
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email.value.trim()) {
+      document.getElementById('signinEmail-error').textContent = 'Email is required';
+      isValid = false;
+    } else if (!emailRegex.test(email.value)) {
+      document.getElementById('signinEmail-error').textContent = 'Please enter a valid email address';
+      isValid = false;
+    }
+
+    if (!password.value) {
+      document.getElementById('signinPassword-error').textContent = 'Password is required';
+      isValid = false;
+    } else if (password.value.length < 8) {
+      document.getElementById('signinPassword-error').textContent = 'Password must be at least 8 characters';
+      isValid = false;
+    }
+
+    if (isValid) {
+      form.style.display = 'none';
+      success.style.display = 'flex';
+      // Simulate sign-in and redirect
+      setTimeout(function() { window.location.href = 'menu.html'; }, 2000);
+    } else {
+      var firstError = document.querySelector('.error-message:not(:empty)');
+      if (firstError) firstError.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  });
+});
+</script>
+</body>
+</html>
